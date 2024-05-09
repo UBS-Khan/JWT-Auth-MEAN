@@ -1,6 +1,7 @@
 import express, { json } from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import authRoutes from './routes/auth.js';
 import roleRoutes from './routes/roles.js';
 
 const app = express();
@@ -16,6 +17,7 @@ const connectMongoDB = async () => {
 }
 
 app.use(json());
+app.use('/account', authRoutes);
 app.use('/roles', roleRoutes);
 
 app.listen(8080, () => {

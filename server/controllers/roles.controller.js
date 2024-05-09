@@ -16,7 +16,7 @@ export const createRole = async (req, res, next) => {
 }
 
 //region Read Roles
-export const readRoles = async(req, res, next) => {
+export const readRoles = async (req, res, next) => {
     try {
         const roles = await Role.find({});
         return res.status(200).send(roles);
